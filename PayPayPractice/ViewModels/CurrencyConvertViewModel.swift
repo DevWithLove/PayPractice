@@ -84,7 +84,6 @@ private extension CurrencyConvertViewModel {
         guard let latestCurrency = try? currencyCacheManager.read() else { return nil }
         // Return cached currency without check last fetched time
         if ignoreExpired { return latestCurrency }
-
         return latestCurrency.isExpired ? nil : latestCurrency
     }
 
@@ -96,6 +95,6 @@ private extension CurrencyConvertViewModel {
     func getRateInfo(from base: Currency, to target: Currency) -> String {
         guard base != target,
               let rate = self.latestCurrency?.convertCurrency(from: base, to: target, amount: 1) else { return "" }
-        return "1 \(base.code) = \(rate.toCurrency(for: target))"
+        return "1 \(base.code) = \(rate.toCurrency(for: target, decimalPlace: 4))"
     }
 }

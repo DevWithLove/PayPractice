@@ -9,10 +9,10 @@
 import Foundation
 
 extension Decimal {
-    func toCurrency(for currency: Currency) -> String {
+    func toCurrency(for currency: Currency, decimalPlace: Int = 2) -> String {
         let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = decimalPlace
+        formatter.minimumFractionDigits = decimalPlace
         formatter.currencyCode = currency.code
         formatter.numberStyle = .currency
         return formatter.string(for: self) ?? ""

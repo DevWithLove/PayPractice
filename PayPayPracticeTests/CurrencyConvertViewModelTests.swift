@@ -27,7 +27,7 @@ class CurrencyConvertViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.currencies[0].subtitle, "")
         XCTAssertEqual(viewModel.currencies[1].name, "NZD")
         XCTAssertEqual(viewModel.currencies[1].title, "NZ$1.62")
-        XCTAssertEqual(viewModel.currencies[1].subtitle, "1 USD = NZ$1.62")
+        XCTAssertEqual(viewModel.currencies[1].subtitle, "1 USD = NZ$1.6190")
     }
 
     /// Load data from cached, if there is a valid cached data
@@ -47,7 +47,7 @@ class CurrencyConvertViewModelTests: XCTestCase {
         // Assert
         XCTAssertEqual(viewModel.currencies[1].name, "NZD")
         XCTAssertEqual(viewModel.currencies[1].title, "NZ$1.80")
-        XCTAssertEqual(viewModel.currencies[1].subtitle, "1 USD = NZ$1.80")
+        XCTAssertEqual(viewModel.currencies[1].subtitle, "1 USD = NZ$1.8000")
     }
 
     /// Load data from api, if there is the cached data is expired
@@ -67,7 +67,7 @@ class CurrencyConvertViewModelTests: XCTestCase {
         // Assert
         XCTAssertEqual(viewModel.currencies[1].name, "NZD")
         XCTAssertEqual(viewModel.currencies[1].title, "NZ$1.62")
-        XCTAssertEqual(viewModel.currencies[1].subtitle, "1 USD = NZ$1.62")
+        XCTAssertEqual(viewModel.currencies[1].subtitle, "1 USD = NZ$1.6190")
     }
 
     /// Load data from cached, even the cached data is expired when API returns error
@@ -88,7 +88,7 @@ class CurrencyConvertViewModelTests: XCTestCase {
         // Assert
         XCTAssertEqual(viewModel.currencies[1].name, "NZD")
         XCTAssertEqual(viewModel.currencies[1].title, "NZ$1.80")
-        XCTAssertEqual(viewModel.currencies[1].subtitle, "1 USD = NZ$1.80")
+        XCTAssertEqual(viewModel.currencies[1].subtitle, "1 USD = NZ$1.8000")
     }
 }
 
