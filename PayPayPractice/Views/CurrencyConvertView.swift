@@ -41,6 +41,13 @@ struct CurrencyConvertView: View {
             })
             .padding()
         }
+        .onTapGesture {
+            // Hide Keyboard
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                            to: nil,
+                                            from: nil,
+                                            for: nil)
+        }
         .task {
            await viewModel.fetchLatestCurrency()
         }
