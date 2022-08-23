@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0237D36228B48DE0007EF029 /* PayPayPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D36128B48DE0007EF029 /* PayPayPracticeApp.swift */; };
-		0237D36428B48DE0007EF029 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D36328B48DE0007EF029 /* ContentView.swift */; };
+		0237D36428B48DE0007EF029 /* CurrencyConvertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D36328B48DE0007EF029 /* CurrencyConvertView.swift */; };
 		0237D36628B48DE1007EF029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0237D36528B48DE1007EF029 /* Assets.xcassets */; };
 		0237D36928B48DE1007EF029 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0237D36828B48DE1007EF029 /* Preview Assets.xcassets */; };
 		0237D37328B48DE1007EF029 /* PayPayPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D37228B48DE1007EF029 /* PayPayPracticeTests.swift */; };
 		0237D37D28B48DE1007EF029 /* PayPayPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D37C28B48DE1007EF029 /* PayPayPracticeUITests.swift */; };
 		0237D37F28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D37E28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift */; };
+		0237D38D28B48F7B007EF029 /* CurrencyUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */; };
+		0237D38F28B494F4007EF029 /* CurrencyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D38E28B494F4007EF029 /* CurrencyDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		0237D35E28B48DE0007EF029 /* PayPayPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayPayPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0237D36128B48DE0007EF029 /* PayPayPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPayPracticeApp.swift; sourceTree = "<group>"; };
-		0237D36328B48DE0007EF029 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0237D36328B48DE0007EF029 /* CurrencyConvertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConvertView.swift; sourceTree = "<group>"; };
 		0237D36528B48DE1007EF029 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0237D36828B48DE1007EF029 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0237D36E28B48DE1007EF029 /* PayPayPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayPayPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,8 @@
 		0237D37828B48DE1007EF029 /* PayPayPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayPayPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0237D37C28B48DE1007EF029 /* PayPayPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPayPracticeUITests.swift; sourceTree = "<group>"; };
 		0237D37E28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPayPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUITextField.swift; sourceTree = "<group>"; };
+		0237D38E28B494F4007EF029 /* CurrencyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,9 @@
 		0237D36028B48DE0007EF029 /* PayPayPractice */ = {
 			isa = PBXGroup;
 			children = (
+				0237D38B28B48F69007EF029 /* Views */,
 				0237D36128B48DE0007EF029 /* PayPayPracticeApp.swift */,
-				0237D36328B48DE0007EF029 /* ContentView.swift */,
+				0237D36328B48DE0007EF029 /* CurrencyConvertView.swift */,
 				0237D36528B48DE1007EF029 /* Assets.xcassets */,
 				0237D36728B48DE1007EF029 /* Preview Content */,
 			);
@@ -125,6 +130,15 @@
 				0237D37E28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift */,
 			);
 			path = PayPayPracticeUITests;
+			sourceTree = "<group>";
+		};
+		0237D38B28B48F69007EF029 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */,
+				0237D38E28B494F4007EF029 /* CurrencyDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0237D36428B48DE0007EF029 /* ContentView.swift in Sources */,
+				0237D38F28B494F4007EF029 /* CurrencyDetailView.swift in Sources */,
+				0237D36428B48DE0007EF029 /* CurrencyConvertView.swift in Sources */,
 				0237D36228B48DE0007EF029 /* PayPayPracticeApp.swift in Sources */,
+				0237D38D28B48F7B007EF029 /* CurrencyUITextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
