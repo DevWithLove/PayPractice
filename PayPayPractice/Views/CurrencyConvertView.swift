@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct CurrencyConvertView: View {
-    
-    var currencies = ["Red", "Green", "Blue", "Tartan"]
+
     // MARK: - Private properties
     @StateObject private var viewModel: CurrencyConvertViewModel
-    @State private var selectedCurrency = "Red"
-    @State private var value: Double?
 
     // MARK: - init
     public init (viewModel: CurrencyConvertViewModel = CurrencyConvertViewModel()) {
@@ -23,19 +20,17 @@ struct CurrencyConvertView: View {
     var body: some View {
         ScrollView {
             VStack {
-                CurrencyTextField("Please enter the amount", value: self.$value, alwaysShowFractions: false, numberOfDecimalPlaces: 2, currencySymbol: "US$")
+                CurrencyTextField("Please enter the amount", value: $viewModel.amount, alwaysShowFractions: false, numberOfDecimalPlaces: 2, currencySymbol: "US$")
                            .multilineTextAlignment(TextAlignment.center)
 
-                Picker("Please choose a currency", selection: $selectedCurrency) {
-                    ForEach(currencies, id: \.self) {
+                Picker("Please choose a currency", selection: $viewModel.selectedCurrency) {
+                    ForEach(viewModel.defaultCurrencyList, id: \.self) {
                         Text($0)
                     }
                 }
 
-                ForEach (currencies, id: \.self) { currency in
-                    CurrencyDetailView(detail: CurrencyDetail(name: currency,
-                                                              title: "$ 101,814.02",
-                                                              subtitle: "1 USD = 1.6 NZD"))
+                ForEach (viewModel.currencies, id: \.name) { currency in
+                    RateDetailView(detail: currency)
                 }
             }
             .padding()

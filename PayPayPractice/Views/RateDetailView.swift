@@ -1,5 +1,5 @@
 //
-//  CurrencyDetailView.swift
+//  RateDetailView.swift
 //  PayPayPractice
 //
 //  Created by Tony Mu on 23/08/22.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CurrencyDetail {
+struct RateDetail {
     let name: String
     let title: String
     let subtitle: String
 }
 
-struct CurrencyDetailView: View {
-    let detail: CurrencyDetail
+struct RateDetailView: View {
+    let detail: RateDetail
     var body: some View {
         Group {
             HStack {
@@ -38,7 +38,7 @@ struct CurrencyDetailView: View {
 
 struct CurrencyDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyDetailView(detail: CurrencyDetail(name: "NZD",
+        RateDetailView(detail: RateDetail(name: "NZD",
                                                   title: "$ 101,814.02",
                                                   subtitle: "1 USD = 1.6 NZD"))
     }

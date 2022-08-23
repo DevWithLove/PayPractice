@@ -31,7 +31,6 @@ enum CurrencyApi {
         guard let url = URL(string: urlString) else {
             throw ApiError.urlError("invalid url: \(urlString)")
         }
-
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.httpBody = body
