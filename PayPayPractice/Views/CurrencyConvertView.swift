@@ -49,7 +49,7 @@ struct CurrencyConvertView: View {
                                             for: nil)
         }
         .task {
-           await viewModel.fetchLatestCurrency()
+           await viewModel.loadData()
         }
     }
 }

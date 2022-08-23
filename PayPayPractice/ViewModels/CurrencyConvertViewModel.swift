@@ -11,6 +11,7 @@ class CurrencyConvertViewModel: ObservableObject {
 
     // MARK: - Private properties
     private let currencyRepository: CurrencyRepository
+    private let currencyCacheManager: CurrencyStorage
     private var latestCurrency: LatestCurrencyDto?
 
     // MARK: - View Properties
@@ -18,25 +19,32 @@ class CurrencyConvertViewModel: ObservableObject {
     let defaultCurrencyList = Currency.allCases
     /// Currency detail list
     @Published var currencies = [RateDetail]()
+    /// User entered amount
     @Published var amount: Double? = nil
+    /// User selected base currency
     @Published var selectedCurrency: Currency = .USD
 
-    init(currencyRepository: CurrencyRepository = DefaultCurrencyRepository()) {
+    // MARK: - Init
+    init(currencyRepository: CurrencyRepository = DefaultCurrencyRepository(),
+         currencyCacheManager: CurrencyStorage = DefaultCurrencyStorage()) {
         self.currencyRepository = currencyRepository
+        self.currencyCacheManager = currencyCacheManager
     }
 
     @MainActor
-    func fetchLatestCurrency() async {
-        do {
-            let result = try await currencyRepository.fetchLatest(for: "USD")
-            latestCurrency = result
+    func loadData() async {
+        // Try to get valid cached currency detail
+        if let cachedLatestCurrency = getCachedLatestCurrency() {
+            latestCurrency = cachedLatestCurrency
             updateRatesDetail()
-        } catch {
-            // TODO: error handling
-            print(error)
+            return
         }
+
+        // Otherwise, fetching currency remotely
+        await fetchLatestCurrency()
     }
 
+    /// Update currency info based on user's input
     func updateRatesDetail() {
         currencies = defaultCurrencyList.compactMap { currency in
             let amount = Decimal(self.amount ?? 1)
@@ -49,6 +57,40 @@ class CurrencyConvertViewModel: ObservableObject {
 
 // MARK: - Private Helpers
 private extension CurrencyConvertViewModel {
+    /// Fetch currency from API
+    @MainActor
+    func fetchLatestCurrency() async {
+        do {
+            let result = try await currencyRepository.fetchLatest(for: .USD)
+            latestCurrency = result
+            // Update the view
+            updateRatesDetail()
+            // Store the latest result to cache with fatchedTime
+            let cache = LatestCurrencyDto(timestamp: result.timestamp,
+                                          base: result.base,
+                                          rates: result.rates,
+                                          fetchedTime: Date())
+            try? currencyCacheManager.write(cache)
+        } catch { // Failed to get data from API
+
+            // Use cached data if there is any
+            if let cachedLatestCurrency = getCachedLatestCurrency() {
+                latestCurrency = cachedLatestCurrency
+                updateRatesDetail()
+                return
+            }
+
+            // TODO: Otherwise display error message to user
+        }
+    }
+
+    /// Get cached currency
+    func getCachedLatestCurrency() -> LatestCurrencyDto? {
+        guard let latestCurrency = try? currencyCacheManager.read(),
+              !latestCurrency.isExpired else { return nil }
+        return latestCurrency
+    }
+
     func getConvertedAmount(from base: Currency, to target: Currency, amount: Decimal) -> String {
         guard let exchangedAmount = self.latestCurrency?.convertCurrency(from: base, to: target, amount: amount) else { return "" }
         return exchangedAmount.toCurrency(for: target)

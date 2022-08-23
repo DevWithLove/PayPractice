@@ -8,12 +8,12 @@
 import Foundation
 
 protocol CurrencyRepository {
-    func fetchLatest(for baseCurrency: String) async throws -> LatestCurrencyDto
+    func fetchLatest(for baseCurrency: Currency) async throws -> LatestCurrencyDto
 }
 
 class DefaultCurrencyRepository: CurrencyRepository {
-    func fetchLatest(for baseCurrency: String = "USD") async throws -> LatestCurrencyDto {
-        let request = try CurrencyApi.fetchLatest(baseCurrency).request()
+    func fetchLatest(for baseCurrency: Currency) async throws -> LatestCurrencyDto {
+        let request = try CurrencyApi.fetchLatest(baseCurrency.code).request()
         do {
             return try await request.send()
         } catch {

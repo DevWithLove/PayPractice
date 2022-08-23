@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct LatestCurrencyDto: Decodable {
-    let timestamp: Int
+struct LatestCurrencyDto: Codable {
+    let timestamp: Double
     let base: String
     let rates: [String: Decimal]
+    let fetchedTime: Date?
 }
 
 extension LatestCurrencyDto {
@@ -24,5 +25,14 @@ extension LatestCurrencyDto {
 
         // Otherwise, convert currency based on USD rate
         return (amount / fromCurrencyRate) * toCurrencyRate
+    }
+
+    var isExpired: Bool {
+        guard let fetchedTime = fetchedTime else { return true }
+        let diffComponents = Calendar.current.dateComponents([.minute], from: fetchedTime, to: Date())
+        if let minute = diffComponents.minute  {
+            return minute > 30
+        }
+        return true
     }
 }

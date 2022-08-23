@@ -23,6 +23,7 @@
 		0237D39E28B4A150007EF029 /* LatestCurrencyDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39D28B4A150007EF029 /* LatestCurrencyDto.swift */; };
 		0237D3A028B4AADF007EF029 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39F28B4AADF007EF029 /* HelperExtensions.swift */; };
 		0237D3A228B4D144007EF029 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D3A128B4D144007EF029 /* Currency.swift */; };
+		0237D3A628B4E80C007EF029 /* CurrencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D3A528B4E80C007EF029 /* CurrencyStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		0237D39D28B4A150007EF029 /* LatestCurrencyDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCurrencyDto.swift; sourceTree = "<group>"; };
 		0237D39F28B4AADF007EF029 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		0237D3A128B4D144007EF029 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		0237D3A528B4E80C007EF029 /* CurrencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		0237D39328B49A68007EF029 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0237D3A428B4E7C2007EF029 /* Storage */,
 				0237D39928B49D96007EF029 /* Utils */,
 				0237D39428B49A77007EF029 /* Networking */,
 			);
@@ -200,6 +203,14 @@
 				0237D3A128B4D144007EF029 /* Currency.swift */,
 			);
 			path = Dtos;
+			sourceTree = "<group>";
+		};
+		0237D3A428B4E7C2007EF029 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				0237D3A528B4E80C007EF029 /* CurrencyStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +351,7 @@
 				0237D36228B48DE0007EF029 /* PayPayPracticeApp.swift in Sources */,
 				0237D3A228B4D144007EF029 /* Currency.swift in Sources */,
 				0237D39E28B4A150007EF029 /* LatestCurrencyDto.swift in Sources */,
+				0237D3A628B4E80C007EF029 /* CurrencyStorage.swift in Sources */,
 				0237D38D28B48F7B007EF029 /* CurrencyUITextField.swift in Sources */,
 				0237D39C28B49DDA007EF029 /* CurrencyRepository.swift in Sources */,
 				0237D39628B49A9D007EF029 /* CurrencyApi.swift in Sources */,
