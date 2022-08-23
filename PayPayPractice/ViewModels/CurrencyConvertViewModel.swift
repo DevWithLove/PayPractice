@@ -65,21 +65,15 @@ private extension CurrencyConvertViewModel {
             latestCurrency = result
             // Update the view
             updateRatesDetail()
-            // Store the latest result to cache with fatchedTime
-            let cache = LatestCurrencyDto(timestamp: result.timestamp,
-                                          base: result.base,
-                                          rates: result.rates,
-                                          fetchedTime: Date())
-            try? currencyCacheManager.write(cache)
-        } catch { // Failed to get data from API
-
+            // Store the latest result to cache
+            try? currencyCacheManager.write(result)
+        } catch {
             // Use cached data if there is any
             if let cachedLatestCurrency = getCachedLatestCurrency() {
                 latestCurrency = cachedLatestCurrency
                 updateRatesDetail()
                 return
             }
-
             // TODO: Otherwise display error message to user
         }
     }

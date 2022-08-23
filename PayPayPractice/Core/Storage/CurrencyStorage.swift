@@ -14,14 +14,20 @@ protocol CurrencyStorage {
 
 class DefaultCurrencyStorage: CurrencyStorage {
     private let jsonFile = "latestCurrency.json"
-
-    func write(_ currency: LatestCurrencyDto) throws {
-        do {
-            let fileURL = try FileManager.default
+    private var fileURL: URL {
+        get throws {
+            try FileManager.default
                 .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 .appendingPathComponent(jsonFile)
+        }
+    }
 
-            try JSONEncoder().encode(currency).write(to: fileURL)
+    func write(_ currency: LatestCurrencyDto) throws {
+        // Converte the currency with fetchedTime
+        let data = currency.clone(with: Date())
+        do {
+            let fileURL = try fileURL
+            try JSONEncoder().encode(data).write(to: fileURL)
         } catch {
             throw StorageError.failedWrtieData
         }
@@ -29,10 +35,7 @@ class DefaultCurrencyStorage: CurrencyStorage {
 
     func read() throws -> LatestCurrencyDto? {
         do {
-            let fileURL = try FileManager.default
-                .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-                .appendingPathComponent(jsonFile)
-
+            let fileURL = try fileURL
             let data = try Data(contentsOf: fileURL)
             return try JSONDecoder().decode(LatestCurrencyDto.self, from: data)
         } catch {
@@ -44,4 +47,10 @@ class DefaultCurrencyStorage: CurrencyStorage {
 enum StorageError: Error {
     case failedWrtieData
     case failedReadData
+}
+
+private extension LatestCurrencyDto {
+    func clone(with fetchedTime: Date) -> LatestCurrencyDto {
+        LatestCurrencyDto(timestamp: timestamp, base: base, rates: rates, fetchedTime: fetchedTime)
+    }
 }
