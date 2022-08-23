@@ -21,11 +21,11 @@ struct RateDetailView: View {
                 Text(detail.name)
                     .font(.title)
                 Spacer()
-                VStack(alignment: .leading, spacing: 5) {
+                VStack(alignment: .trailing, spacing: 5) {
                     Text(detail.title)
-                        .font(.title2)
+                        .font(.headline)
                     Text(detail.subtitle)
-                        .font(.subheadline)
+                        .font(.caption)
                 }
             }.padding(8)
         }

@@ -20,12 +20,12 @@ struct CurrencyConvertView: View {
     var body: some View {
         ScrollView {
             VStack {
-                CurrencyTextField("Please enter the amount", value: $viewModel.amount, alwaysShowFractions: false, numberOfDecimalPlaces: 2, currencySymbol: "US$")
+                CurrencyTextField("Please enter the amount", value: $viewModel.amount, alwaysShowFractions: false, numberOfDecimalPlaces: 2)
                            .multilineTextAlignment(TextAlignment.center)
 
                 Picker("Please choose a currency", selection: $viewModel.selectedCurrency) {
                     ForEach(viewModel.defaultCurrencyList, id: \.self) {
-                        Text($0)
+                        Text($0.code)
                     }
                 }
 
@@ -33,6 +33,12 @@ struct CurrencyConvertView: View {
                     RateDetailView(detail: currency)
                 }
             }
+            .onChange(of: viewModel.selectedCurrency, perform: { _ in
+                viewModel.updateRatesDetail()
+            })
+            .onChange(of: viewModel.amount, perform: { _ in
+                viewModel.updateRatesDetail()
+            })
             .padding()
         }
         .task {
