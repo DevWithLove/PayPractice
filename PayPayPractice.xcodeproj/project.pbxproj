@@ -16,6 +16,11 @@
 		0237D37F28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D37E28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift */; };
 		0237D38D28B48F7B007EF029 /* CurrencyUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */; };
 		0237D38F28B494F4007EF029 /* CurrencyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D38E28B494F4007EF029 /* CurrencyDetailView.swift */; };
+		0237D39228B49975007EF029 /* CurrencyConvertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39128B49975007EF029 /* CurrencyConvertViewModel.swift */; };
+		0237D39628B49A9D007EF029 /* CurrencyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39528B49A9D007EF029 /* CurrencyApi.swift */; };
+		0237D39828B49AB5007EF029 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39728B49AB5007EF029 /* ApiError.swift */; };
+		0237D39C28B49DDA007EF029 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39B28B49DD9007EF029 /* CurrencyRepository.swift */; };
+		0237D39E28B4A150007EF029 /* LatestCurrencyResultDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39D28B4A150007EF029 /* LatestCurrencyResultDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		0237D37E28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPayPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUITextField.swift; sourceTree = "<group>"; };
 		0237D38E28B494F4007EF029 /* CurrencyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailView.swift; sourceTree = "<group>"; };
+		0237D39128B49975007EF029 /* CurrencyConvertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConvertViewModel.swift; sourceTree = "<group>"; };
+		0237D39528B49A9D007EF029 /* CurrencyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyApi.swift; sourceTree = "<group>"; };
+		0237D39728B49AB5007EF029 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		0237D39B28B49DD9007EF029 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
+		0237D39D28B4A150007EF029 /* LatestCurrencyResultDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCurrencyResultDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +108,10 @@
 		0237D36028B48DE0007EF029 /* PayPayPractice */ = {
 			isa = PBXGroup;
 			children = (
+				0237D39328B49A68007EF029 /* Core */,
+				0237D39028B4993D007EF029 /* ViewModels */,
 				0237D38B28B48F69007EF029 /* Views */,
 				0237D36128B48DE0007EF029 /* PayPayPracticeApp.swift */,
-				0237D36328B48DE0007EF029 /* CurrencyConvertView.swift */,
 				0237D36528B48DE1007EF029 /* Assets.xcassets */,
 				0237D36728B48DE1007EF029 /* Preview Content */,
 			);
@@ -135,10 +146,54 @@
 		0237D38B28B48F69007EF029 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0237D36328B48DE0007EF029 /* CurrencyConvertView.swift */,
 				0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */,
 				0237D38E28B494F4007EF029 /* CurrencyDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0237D39028B4993D007EF029 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0237D39128B49975007EF029 /* CurrencyConvertViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0237D39328B49A68007EF029 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0237D39928B49D96007EF029 /* Utils */,
+				0237D39428B49A77007EF029 /* Networking */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0237D39428B49A77007EF029 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0237D39A28B49DA8007EF029 /* Dtos */,
+				0237D39528B49A9D007EF029 /* CurrencyApi.swift */,
+				0237D39728B49AB5007EF029 /* ApiError.swift */,
+				0237D39B28B49DD9007EF029 /* CurrencyRepository.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0237D39928B49D96007EF029 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0237D39A28B49DA8007EF029 /* Dtos */ = {
+			isa = PBXGroup;
+			children = (
+				0237D39D28B4A150007EF029 /* LatestCurrencyResultDto.swift */,
+			);
+			path = Dtos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,10 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0237D39828B49AB5007EF029 /* ApiError.swift in Sources */,
 				0237D38F28B494F4007EF029 /* CurrencyDetailView.swift in Sources */,
+				0237D39228B49975007EF029 /* CurrencyConvertViewModel.swift in Sources */,
 				0237D36428B48DE0007EF029 /* CurrencyConvertView.swift in Sources */,
 				0237D36228B48DE0007EF029 /* PayPayPracticeApp.swift in Sources */,
+				0237D39E28B4A150007EF029 /* LatestCurrencyResultDto.swift in Sources */,
 				0237D38D28B48F7B007EF029 /* CurrencyUITextField.swift in Sources */,
+				0237D39C28B49DDA007EF029 /* CurrencyRepository.swift in Sources */,
+				0237D39628B49A9D007EF029 /* CurrencyApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
