@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CloudKit
 
 class CurrencyConvertViewModel: ObservableObject {
 
@@ -68,8 +69,8 @@ private extension CurrencyConvertViewModel {
             // Store the latest result to cache
             try? currencyCacheManager.write(result)
         } catch {
-            // Use cached data if there is any
-            if let cachedLatestCurrency = getCachedLatestCurrency() {
+            // Use cached data if there is any, ignore last fetched time check
+            if let cachedLatestCurrency = getCachedLatestCurrency(ignoreExpired: true) {
                 latestCurrency = cachedLatestCurrency
                 updateRatesDetail()
                 return
@@ -79,10 +80,12 @@ private extension CurrencyConvertViewModel {
     }
 
     /// Get cached currency
-    func getCachedLatestCurrency() -> LatestCurrencyDto? {
-        guard let latestCurrency = try? currencyCacheManager.read(),
-              !latestCurrency.isExpired else { return nil }
-        return latestCurrency
+    func getCachedLatestCurrency(ignoreExpired: Bool = false) -> LatestCurrencyDto? {
+        guard let latestCurrency = try? currencyCacheManager.read() else { return nil }
+        // Return cached currency without check last fetched time
+        if ignoreExpired { return latestCurrency }
+
+        return latestCurrency.isExpired ? nil : latestCurrency
     }
 
     func getConvertedAmount(from base: Currency, to target: Currency, amount: Decimal) -> String {

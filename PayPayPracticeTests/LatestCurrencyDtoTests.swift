@@ -16,7 +16,7 @@ class LatestCurrencyDtoTests: XCTestCase {
 
     func testConvert_USD_to_NZD() throws {
         // Arrange
-        let dto = LatestCurrencyDto(timestamp: 1231231, base: "USD", rates: rates)
+        let dto = LatestCurrencyDto(timestamp: 1231231, base: "USD", rates: rates, fetchedTime: nil)
 
         // Act
         let amount = dto.convertCurrency(from: .USD, to: .NZD, amount: 100)?.toCurrency(for: .NZD)
@@ -27,7 +27,7 @@ class LatestCurrencyDtoTests: XCTestCase {
 
     func testConvert_NZD_to_USD() throws {
         // Arrange
-        let dto = LatestCurrencyDto(timestamp: 1231231, base: "USD", rates: rates)
+        let dto = LatestCurrencyDto(timestamp: 1231231, base: "USD", rates: rates, fetchedTime: nil)
 
         // Act
         let amount = dto.convertCurrency(from: .NZD, to: .USD, amount: 100)?.toCurrency(for: .USD)
@@ -38,13 +38,24 @@ class LatestCurrencyDtoTests: XCTestCase {
 
     func testConvert_NZD_to_JPY() throws {
         // Arrange
-        let dto = LatestCurrencyDto(timestamp: 1231231, base: "USD", rates: rates)
+        let dto = LatestCurrencyDto(timestamp: 1231231, base: "USD", rates: rates, fetchedTime: nil)
 
         // Act
         let amount = dto.convertCurrency(from: .NZD, to: .JPY, amount: 100)?.toCurrency(for: .JPY)
 
         // Assert
         XCTAssertEqual(amount, "¥8,484.52")
+    }
+
+    func testConvert_NZD_to_NZD() throws {
+        // Arrange
+        let dto = LatestCurrencyDto(timestamp: 1231231, base: "USD", rates: rates, fetchedTime: nil)
+
+        // Act
+        let amount = dto.convertCurrency(from: .NZD, to: .NZD, amount: 100)?.toCurrency(for: .NZD)
+
+        // Assert
+        XCTAssertEqual(amount, "NZ$100.00")
     }
 }
 

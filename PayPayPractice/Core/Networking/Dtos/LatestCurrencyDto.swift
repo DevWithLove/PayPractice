@@ -18,12 +18,7 @@ extension LatestCurrencyDto {
     func convertCurrency(from: Currency, to: Currency, amount: Decimal = 1) -> Decimal? {
         guard let fromCurrencyRate = rates[from.code],
               let toCurrencyRate = rates[to.code] else { return nil }
-
-        // The rates list based on USD
-        if from == .USD { return toCurrencyRate * amount }
-        if to == .USD { return amount / fromCurrencyRate }
-
-        // Otherwise, convert currency based on USD rate
+        // Convert currency based on USD rate
         return (amount / fromCurrencyRate) * toCurrencyRate
     }
 

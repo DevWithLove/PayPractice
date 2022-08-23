@@ -14,10 +14,6 @@ protocol CurrencyRepository {
 class DefaultCurrencyRepository: CurrencyRepository {
     func fetchLatest(for baseCurrency: Currency) async throws -> LatestCurrencyDto {
         let request = try CurrencyApi.fetchLatest(baseCurrency.code).request()
-        do {
-            return try await request.send()
-        } catch {
-            throw ApiError.unknown(error)
-        }
+        return try await request.send()
     }
 }
