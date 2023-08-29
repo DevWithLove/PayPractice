@@ -18,7 +18,7 @@ import AppCenterAnalytics
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        AppCenter.start(withAppSecret: "a9e12a6a-42b5-4d4c-b8d4-8011df266c87", services: [Analytics.self, Crashes.self])
+        AppCenter.start(withAppSecret: "d496189c-de02-406f-86e7-0c2e634d081e", services: [Analytics.self, Crashes.self])
         
         print("Had crash: \(Crashes.hasCrashedInLastSession)")
         return true
