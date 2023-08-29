@@ -7,6 +7,7 @@
 
 import Foundation
 import CloudKit
+import AppCenterCrashes
 
 class CurrencyConvertViewModel: ObservableObject {
 
@@ -30,6 +31,7 @@ class CurrencyConvertViewModel: ObservableObject {
          currencyCacheManager: CurrencyStorage = DefaultCurrencyStorage()) {
         self.currencyRepository = currencyRepository
         self.currencyCacheManager = currencyCacheManager
+       // Crashes.generateTestCrash()
     }
 
     @MainActor
