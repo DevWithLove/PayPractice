@@ -14,7 +14,7 @@
 		0237D37328B48DE1007EF029 /* LatestCurrencyDtoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D37228B48DE1007EF029 /* LatestCurrencyDtoTests.swift */; };
 		0237D37D28B48DE1007EF029 /* PayPayPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D37C28B48DE1007EF029 /* PayPayPracticeUITests.swift */; };
 		0237D37F28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D37E28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift */; };
-		0237D38D28B48F7B007EF029 /* CurrencyUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */; };
+		0237D38D28B48F7B007EF029 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D38C28B48F7B007EF029 /* CurrencyTextField.swift */; };
 		0237D38F28B494F4007EF029 /* RateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D38E28B494F4007EF029 /* RateDetailView.swift */; };
 		0237D39228B49975007EF029 /* CurrencyConvertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39128B49975007EF029 /* CurrencyConvertViewModel.swift */; };
 		0237D39628B49A9D007EF029 /* CurrencyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D39528B49A9D007EF029 /* CurrencyApi.swift */; };
@@ -55,7 +55,7 @@
 		0237D37828B48DE1007EF029 /* PayPayPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayPayPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0237D37C28B48DE1007EF029 /* PayPayPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPayPracticeUITests.swift; sourceTree = "<group>"; };
 		0237D37E28B48DE1007EF029 /* PayPayPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPayPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUITextField.swift; sourceTree = "<group>"; };
+		0237D38C28B48F7B007EF029 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		0237D38E28B494F4007EF029 /* RateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateDetailView.swift; sourceTree = "<group>"; };
 		0237D39128B49975007EF029 /* CurrencyConvertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConvertViewModel.swift; sourceTree = "<group>"; };
 		0237D39528B49A9D007EF029 /* CurrencyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyApi.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				0237D36328B48DE0007EF029 /* CurrencyConvertView.swift */,
-				0237D38C28B48F7B007EF029 /* CurrencyUITextField.swift */,
+				0237D38C28B48F7B007EF029 /* CurrencyTextField.swift */,
 				0237D38E28B494F4007EF029 /* RateDetailView.swift */,
 			);
 			path = Views;
@@ -355,7 +355,7 @@
 				0237D3A228B4D144007EF029 /* Currency.swift in Sources */,
 				0237D39E28B4A150007EF029 /* LatestCurrencyDto.swift in Sources */,
 				0237D3A628B4E80C007EF029 /* CurrencyStorage.swift in Sources */,
-				0237D38D28B48F7B007EF029 /* CurrencyUITextField.swift in Sources */,
+				0237D38D28B48F7B007EF029 /* CurrencyTextField.swift in Sources */,
 				0237D39C28B49DDA007EF029 /* CurrencyRepository.swift in Sources */,
 				0237D39628B49A9D007EF029 /* CurrencyApi.swift in Sources */,
 			);

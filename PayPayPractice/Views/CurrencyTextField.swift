@@ -1,5 +1,5 @@
 //
-//  CurrencyUITextField.swift
+//  CurrencyTextField.swift
 //  PayPayPractice
 //
 //  Created by Tony Mu on 23/08/22.
