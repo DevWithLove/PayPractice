@@ -13,6 +13,14 @@ import AppCenterAnalytics
 /*
  Find uuid for dsym
  mdfind "com_apple_xcode_dsym_uuids == 7323-323-23-3-324234"
+ 
+ In termail see build list
+ xcrun xcodebuild -list
+ 
+ Run uitest from cml
+ xcrun xcodebuild build-for-testing -configuration Debug -project PayPayPractice.xcodeproj -sdk iphoneos -scheme PayPayPractice -derivedDataPath DerivedData -allowProvisioningUpdates
+ 
+once the test runed, we can use DerivedData/Build/Products/Debug-iphoneos/ as test directory for appCenter test
  */
 
 class AppDelegate: NSObject, UIApplicationDelegate {
